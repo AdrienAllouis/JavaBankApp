@@ -38,6 +38,20 @@ public class BankService {
 		}
 	}
 
+	public float sumClientAccounts(Client client) {
+		float total = 0;
+		for (Bank bank : banks) {
+			if (bank == null) continue; // <- ca c'est cool !
+
+			for (Account account : bank.accounts) {
+				if (account != null && account.getOwner() == client) {
+					total = total + account.cash;
+				}
+			}
+		}
+		return total;
+	}
+
 	public void searchClientAccounts(Client userSelection) {
 		for (Bank bank : banks) {
 			if (bank == null) continue; // <- ca c'est cool !

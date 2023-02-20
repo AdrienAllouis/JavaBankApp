@@ -1,6 +1,6 @@
 package BankApp;
 
-public class Registre {
+public final class Registre {
 
     Operation operations[] = new Operation[1000];
     int nbrOperation;

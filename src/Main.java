@@ -18,8 +18,8 @@ public class Main {
 		System.out.println(currentA.resume());
 		System.out.println(savingsA.resume());
 
-		CurrentAccount currentB = new CurrentAccount("CurrentAccountB", 5000);
-		SavingsAccount savingsB = new SavingsAccount("SavingsAccountB", 500);
+		CurrentAccount currentB = new CurrentAccount("CurrentAccountB", 3000);
+		SavingsAccount savingsB = new SavingsAccount("SavingsAccountB", 300);
 		System.out.println(currentB.resume());
 		System.out.println(savingsB.resume());
 
@@ -35,6 +35,9 @@ public class Main {
 
 		CurrentAccount currentC = new CurrentAccount("CurrentAccountC", 5000);
 		SavingsAccount savingsC = new SavingsAccount("SavingsAccountC", 500);
+
+		currentA.setOwner(clientB);
+		savingsA.setOwner(clientB);
 
 		currentC.setOwner(clientA);
 		savingsC.setOwner(clientA);
@@ -64,6 +67,16 @@ public class Main {
 
 		service.displayRegistre();
 
+		System.out.println("\n*** Test sum accounts ***");
+
+		System.out.println(service.sumClientAccounts(clientA));
+
+		System.out.println("\n*** Test scompareTo ***");
+
+		System.out.println(clientA.calculTotalAccount(clientA));
+		System.out.println(clientB.calculTotalAccount(clientB));
+
+		System.out.println(clientB.compareTo(clientA));
 
 		//! Menu
 		// Menu.menu();

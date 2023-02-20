@@ -2,9 +2,10 @@
 
 ## TODO
 
-[ ] Menu : transfert
+[x] Menu : transfert
 
-[ ] Menu : recherche client
+[x] Menu : recherche client
 
 [ ] Menu : retour
 
+[ ] TP:6
