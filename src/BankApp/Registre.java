@@ -1,12 +1,14 @@
 package BankApp;
 
+import java.util.ArrayList;
+
 public final class Registre {
 
-    Operation operations[] = new Operation[1000];
+    private ArrayList<Operation> operations = new ArrayList<>();
     int nbrOperation;
 
     public void addOperation(Operation newOperation) {
-        operations[nbrOperation] = newOperation;
+        operations.add(newOperation);
         nbrOperation++;
     }
 

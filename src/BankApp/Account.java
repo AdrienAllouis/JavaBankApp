@@ -1,6 +1,6 @@
 package BankApp;
 
-public abstract class Account {
+public abstract class Account implements Comparable {
 
 	int idNbr;
 	float cash;
@@ -62,5 +62,15 @@ public abstract class Account {
 	}
 	
 	public abstract String resume();
+
+	public int compareTo(Object compareTo) {
+
+		Account compareToAcc = (Account)compareTo;
+
+		// Les trois comparaisons
+		if (cash == compareToAcc.getCash()) return 0;
+		if (cash > compareToAcc.getCash()) return 1;
+		return -1;
+	}
 	
 }

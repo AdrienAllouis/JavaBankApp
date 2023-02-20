@@ -2,15 +2,18 @@ package BankApp;
 
 import java.text.DateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class BankService {
 	
-	static Bank banks[] = new Bank[1000];
+	static List<Bank> banks = new ArrayList<Bank>();
 	static int nbBanks;
 	Registre registre = new Registre();
 	
 	public void addBank(Bank bank) {
-		banks[nbBanks] = bank;
+		banks.add(bank);
 		nbBanks++;
 	}
 	

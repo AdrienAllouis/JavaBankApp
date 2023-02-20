@@ -1,26 +1,27 @@
 package BankApp;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 
 public class Bank {
 
 	String name;
-	String adress;
+	String address;
 	DateFormat creationDate;
 	
-	Client clients[];
-	Account accounts[];
+	ArrayList<Client> clients;
+	ArrayList<Account> accounts;
 	
 	int nbClients;
 	int nbAccounts;
 	
-	public Bank(String name, String adress, DateFormat creationDate) {
+	public Bank(String name, String address, DateFormat creationDate) {
 		this.name = name;
-		this.adress = adress;
+		this.address = address;
 		this.creationDate = creationDate;
 		
-		this.clients = new Client[1000];
-		this.accounts = new Account[1000];
+		this.clients = new ArrayList<>();
+		this.accounts = new ArrayList<>();
 	}
 
 	public String getName() {
@@ -31,31 +32,31 @@ public class Bank {
 		this.name = name;
 	}
 
-	public Client[] getClients() {
+	public ArrayList<Client> getClients() {
 		return clients;
 	}
 
-	public void setClients(Client[] clients) {
+	public void setClients(ArrayList<Client> clients) {
 		this.clients = clients;
 	}
 
-	public Account[] getAccounts() {
+	public ArrayList<Account> getAccounts() {
 		return accounts;
 	}
 
-	public void setAccounts(Account[] accounts) {
+	public void setAccounts(ArrayList<Account> accounts) {
 		this.accounts = accounts;
 	}
 	
 	// *** methods ***
 	
 	public void addClient(Client client) {
-		this.clients[nbClients] = client;
+		this.clients.add(client);
 		nbClients++;
 	}
 	
 	public void addAccount(Account account) {
-		this.accounts[nbAccounts] = account;
+		this.accounts.add(account);
 		nbAccounts++;
 	}
 	

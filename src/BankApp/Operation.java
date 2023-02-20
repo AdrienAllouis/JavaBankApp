@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 
 public final class Operation {
 
-    int accountANbr;
-    int accountBNbr;
-    float cashTransfered;
-    LocalDateTime operationDate;
+    private int accountANbr;
+    private int accountBNbr;
+    private float cashTransfered;
+    private LocalDateTime operationDate;
 
     //! Constructor
     public Operation(int accountANbr, int accountBNbr, float cashTransfered, LocalDateTime operationDate) {

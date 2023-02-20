@@ -67,8 +67,8 @@ public class Client {
 		Client compareToCli = (Client)compareTo;
 
 		// Les trois comparaisons
-		if (totalAccounts == compareToCli.totalAccounts) return 0;
-		if (totalAccounts > compareToCli.totalAccounts) return 1;
+		if (totalAccounts == compareToCli.getTotalAccounts()) return 0;
+		if (totalAccounts > compareToCli.getTotalAccounts()) return 1;
 		return -1;
 	}
 }

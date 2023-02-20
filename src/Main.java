@@ -6,7 +6,6 @@ public class Main {
 
 	static DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
 	static BankService service = new BankService();
-	static Registre registre = new Registre();
 
 	public static void main(String[] args) {
 
@@ -71,15 +70,20 @@ public class Main {
 
 		System.out.println(service.sumClientAccounts(clientA));
 
-		System.out.println("\n*** Test scompareTo ***");
+		System.out.println("\n*** Test compareTo Client ***");
 
 		System.out.println(clientA.calculTotalAccount(clientA));
 		System.out.println(clientB.calculTotalAccount(clientB));
 
 		System.out.println(clientB.compareTo(clientA));
 
+		System.out.println("\n*** Test compareTo Account ***");
+
+		System.out.println(currentA.compareTo(currentB));
+		System.out.println(currentB.compareTo(currentA));
+
 		//! Menu
-		// Menu.menu();
+		Menu.menu();
 
 	}
 }
