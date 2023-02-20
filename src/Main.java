@@ -146,7 +146,8 @@ public class Main {
 				break;
 			}
 			case(2): {
-				// TODO : transfert entre deux compte
+				// gestion.transfert();
+				break;
 			}
 			case(3): {
 				gestion.displayAllAccount();

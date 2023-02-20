@@ -34,4 +34,17 @@ public class BankGestion {
 			
 		}
 	}
+	
+	public void transfert(Account accountA, Account accountB, float cashToTransfert) {
+		System.out.println("Transfert");
+		
+		if (accountA instanceof CurrentAccount && accountB instanceof CurrentAccount) {
+			
+		}
+		
+		// Verifier les types de comptes
+		// Verifier si possible en fonction des types de comptes
+		// Verifier si montant pour tranfert ok
+		// faire le transfert
+	}
 }
