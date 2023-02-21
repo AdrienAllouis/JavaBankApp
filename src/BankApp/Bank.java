@@ -73,7 +73,7 @@ public class Bank {
 	public void displayAccounts() {
 		for (Account account : accounts) {
 			if (account != null) {
-				System.out.println(account.accountName);
+				System.out.println(account.accountName + " | " + account.getCash());
 			} else {
 				return;
 			}

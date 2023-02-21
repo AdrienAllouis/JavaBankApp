@@ -1,6 +1,5 @@
 package BankApp;
 
-import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,7 +7,7 @@ import java.util.List;
 
 public class BankService {
 	
-	static List<Bank> banks = new ArrayList<Bank>();
+	static List<Bank> banks = new ArrayList<>();
 	static int nbBanks;
 	Registre registre = new Registre();
 	
@@ -25,6 +24,7 @@ public class BankService {
 	
 	public void displayAllAccount() {
 		for (Bank bank : banks) {
+			Collections.sort(bank.accounts);
 			if (bank != null) bank.displayAccounts();
 		}
 	}

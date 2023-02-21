@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public final class Registre {
 
-    private ArrayList<Operation> operations = new ArrayList<>();
-    int nbrOperation;
+    final private ArrayList<Operation> operations = new ArrayList<>();
+    int nbrOperation = 0;
 
     public void addOperation(Operation newOperation) {
         operations.add(newOperation);

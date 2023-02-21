@@ -11,42 +11,37 @@ public class Menu {
 
     public static void menu() {
 
-        System.out.println("\n*** Menu ***");
+        while (true) {
 
-        System.out.println("1- Création d'une banque");
-        System.out.println("2- Gérer une banque");
-        System.out.println("3- Voir mes banques");
-        System.out.println("4- Quitter");
+            System.out.println("\n*** Menu ***");
 
-        boolean out;
-        int userSelection;
+            System.out.println("1- Création d'une banque");
+            System.out.println("2- Gérer une banque");
+            System.out.println("3- Voir mes banques");
+            System.out.println("4- Quitter");
 
-        do {
-            out = true;
+            int userSelection;
+
             userSelection = sc.nextInt();
 
-            if (userSelection < 0 || userSelection > 4) {
-                out = false;
-                System.out.println("Erreur, Choix entre 1 et 4");
-            }
-        } while (!out);
 
-        switch (userSelection) {
-            case(1): {
-                bankCreation();
-                break;
-            }
-            case(2): {
-                bankGestion();
-                break;
-            }
-            case(3): {
-                service.displayBanks();
-                break;
-            }
-            case(4): {
-                System.out.println("Bye bye !");
-                break;
+            switch (userSelection) {
+                case(1): {
+                    bankCreation();
+                    break;
+                }
+                case(2): {
+                    bankGestion();
+                    break;
+                }
+                case(3): {
+                    service.displayBanks();
+                    break;
+                }
+                case(4): {
+                    System.out.println("Bye bye !");
+                    System.exit(0);
+                }
             }
         }
     }
@@ -68,91 +63,89 @@ public class Menu {
     }
 
     public static void bankGestion() {
-        System.out.println("\nMenu de gestion de banque");
-        System.out.println("1- Ajouter un compte");
-        System.out.println("2- Faire un transfert");
-        System.out.println("3- Voir les comptes");
-        System.out.println("4- Rechercher un compte");
-        System.out.println("5- Rechercher un client");
-        System.out.println("6- Retour");
 
-        boolean out;
-        int userSelection;
+        while (true) {
 
-        do {
-            out = true;
+            System.out.println("\n*** Menu de gestion de banque ***");
+            System.out.println("1- Ajouter un compte");
+            System.out.println("2- Faire un transfert");
+            System.out.println("3- Voir les comptes");
+            System.out.println("4- Rechercher un compte");
+            System.out.println("5- Rechercher un client");
+            System.out.println("6- Retour");
+
+            int userSelection;
+
             userSelection = sc.nextInt();
 
-            if (userSelection < 0 || userSelection > 6) {
-                out = false;
-                System.out.println("Erreur, Choix entre 1 et 6");
+            switch (userSelection) {
+                case(1): {
+                    accountCreation();
+                    break;
+                }
+                case(2): {
+                    int userSelectionFirstAccount;
+                    int userSelectionSecondAccount;
+                    int cashToTransfert;
+
+                    Account accountA;
+                    Account accountB;
+
+                    System.out.println("Numero du compte 1 :");
+                    userSelectionFirstAccount = sc.nextInt();
+
+                    accountA = service.selectAnAccount(userSelectionFirstAccount);
+
+                    System.out.println("Numero du compte 2 :");
+                    userSelectionSecondAccount = sc.nextInt();
+
+                    accountB = service.selectAnAccount(userSelectionSecondAccount);
+
+                    System.out.println("Montant :");
+                    cashToTransfert = sc.nextInt();
+
+                    service.transfert(accountA, accountB, cashToTransfert);
+
+                    System.out.println(accountA.resume());
+                    System.out.println(accountB.resume());
+
+                    break;
+                }
+                case(3): {
+                    service.displayAllAccount();
+                    break;
+                }
+                case(4): {
+                    int userSelectionAccount;
+
+                    System.out.println("Numero du compte :");
+                    userSelectionAccount = sc.nextInt();
+
+                    service.searchAnAccount(userSelectionAccount);
+
+                    break;
+                }
+                case(5): {
+                    String userSelectionClient;
+                    Client client;
+
+                    System.out.println("Nom du client :");
+                    userSelectionClient = sc.next();
+
+                    service.searchClient(userSelectionClient);
+
+                    client = service.selectClient(userSelectionClient);
+
+                    service.searchClientAccounts(client);
+                }
+                case(6): {
+                    return;
+                }
             }
-        } while (!out);
 
-        switch (userSelection) {
-            case(1): {
-                accountCreation();
-                break;
-            }
-            case(2): {
-                int userSelectionFirstAccount;
-                int userSelectionSecondAccount;
-                int cashToTransfert;
-
-                Account accountA;
-                Account accountB;
-
-                System.out.println("Numero du compte 1 :");
-                userSelectionFirstAccount = sc.nextInt();
-
-                accountA = service.selectAnAccount(userSelectionFirstAccount);
-
-                System.out.println("Numero du compte 2 :");
-                userSelectionSecondAccount = sc.nextInt();
-
-                accountB = service.selectAnAccount(userSelectionSecondAccount);
-
-                System.out.println("Montant :");
-                cashToTransfert = sc.nextInt();
-
-                service.transfert(accountA, accountB, cashToTransfert);
-
-                System.out.println(accountA.resume());
-                System.out.println(accountB.resume());
-
-                break;
-            }
-            case(3): {
-                service.displayAllAccount();
-                break;
-            }
-            case(4): {
-                int userSelectionAccount;
-
-                System.out.println("Numero du compte :");
-                userSelectionAccount = sc.nextInt();
-
-                service.searchAnAccount(userSelectionAccount);
-
-                break;
-            }
-            case(5): {
-                String userSelectionClient;
-                Client client;
-
-                System.out.println("Nom du client :");
-                userSelectionClient = sc.next();
-
-                service.searchClient(userSelectionClient);
-
-                client = service.selectClient(userSelectionClient);
-
-                service.searchClientAccounts(client);
-            }
-            case(6): {
-                // TODO : Retour
-            }
         }
+
+
     }
 
     public static void accountCreation() {
